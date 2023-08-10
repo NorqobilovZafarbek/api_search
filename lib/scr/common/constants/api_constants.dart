@@ -3,6 +3,7 @@ abstract final class ApiConst {
     "base_url",
     defaultValue: "...",
   );
+
   static const allPostPath = "/posts";
   static const searchPostsPath = "/posts/search";
   static const createNewPostPath = "/posts/add";
@@ -17,7 +18,7 @@ abstract final class ApiConst {
 
   static String deletePost(int id) => "/posts/$id";
 
-  static Map<String, List<String>> searchParams(String searchText) => {
+  static Map<String, List<String>> searchQuery(String searchText) => {
         "q": [searchText],
       };
 

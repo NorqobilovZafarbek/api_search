@@ -11,7 +11,7 @@ abstract interface class IPostRepository {
 
   Future<List<PostModel>> getAllPosts();
 
-  Future<List<PostModel>> searchPosts(String query);
+  Future<BaseModel> searchPosts(String text);
 }
 
 class PostRepositoryImpl implements IPostRepository {
@@ -27,12 +27,14 @@ class PostRepositoryImpl implements IPostRepository {
   }
 
   @override
-  Future<List<PostModel>> searchPosts(String query) async {
+  Future<BaseModel> searchPosts(String text) async {
     String response = await apiService.request(
       ApiConst.searchPostsPath,
-      queryParametersAll: ApiConst.searchParams(query),
+      queryParametersAll: ApiConst.searchQuery(text),
     );
-    BaseModel baseModel1 = BaseModel.fromJson(jsonDecode(response));
-    return baseModel1.posts;
+
+    BaseModel searchResult = BaseModel.fromJson(jsonDecode(response));
+
+    return searchResult;
   }
 }
