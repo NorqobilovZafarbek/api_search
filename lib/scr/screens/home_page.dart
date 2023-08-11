@@ -11,13 +11,14 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
-        child: FractionallySizedBox(
-          widthFactor: .3,
-          heightFactor: .2,
-          alignment: FractionalOffset.center,
-          child: DecoratedBox(
-            decoration: BoxDecoration(color: Colors.black),
+      body: UnconstrainedBox(
+        child: LimitedBox(
+          maxHeight: 150,
+          maxWidth: 150,
+          child: Container(
+            width: 5000,
+            height: 5000,
+            color: Colors.red,
           ),
         ),
       ),
