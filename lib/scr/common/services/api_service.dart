@@ -29,7 +29,6 @@ class APIService {
   }) async {
     final params = _quaryToString(queryParametersAll);
     final uri = Uri.parse('${ApiConst.baseUrl}$requestPath?$params');
-
     try {
       Response response = await switch (method) {
         Method.get => get(
@@ -45,7 +44,6 @@ class APIService {
           ),
       }
           .timeout(const Duration(seconds: 10));
-
       return switch (response.statusCode) {
         < 200 => throw Error.throwWithStackTrace(
             "${response.reasonPhrase}",

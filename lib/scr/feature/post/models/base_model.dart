@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'post_model.dart';
 
 class BaseModel {
