@@ -11,19 +11,19 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            minWidth: 100,
-            minHeight: 100,
-            maxWidth: 200,
-            maxHeight: 200,
+      body: SizedBox(
+        height: 600,
+        width: 200,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.blue,
           ),
-          child: SizedBox(
-            height: 300,
-            width: 300,
-            child: ColoredBox(
-              color: Colors.red,
+          child: const FittedBox(
+            fit: BoxFit.fitWidth,
+            child: SizedBox(
+              height: 100,
+              width: 300,
+              child: ColoredBox(color: Colors.green),
             ),
           ),
         ),
