@@ -11,20 +11,13 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: 600,
-        width: 200,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.blue,
-          ),
-          child: const FittedBox(
-            fit: BoxFit.fitWidth,
-            child: SizedBox(
-              height: 100,
-              width: 300,
-              child: ColoredBox(color: Colors.green),
-            ),
+      body: SizedBox.expand(
+        child: FractionallySizedBox(
+          widthFactor: .3,
+          heightFactor: .2,
+          alignment: FractionalOffset.center,
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: Colors.black),
           ),
         ),
       ),
