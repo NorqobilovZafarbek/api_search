@@ -11,14 +11,19 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AspectRatio(
-        aspectRatio: 9,
-        child: Container(
-          color: Colors.black,
-          child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Container(
-              color: Colors.green,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 100,
+            minHeight: 100,
+            maxWidth: 200,
+            maxHeight: 200,
+          ),
+          child: SizedBox(
+            height: 300,
+            width: 300,
+            child: ColoredBox(
+              color: Colors.red,
             ),
           ),
         ),
