@@ -8,24 +8,59 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          child: DecoratedBox(
-            decoration: const BoxDecoration(
-              color: Colors.red,
-            ),
-            child: SizedOverflowBox(
-              size: const Size(50, 50),
-              child: ElevatedButton(
-                child: const Text("ElevatedButton"),
-                onPressed: () {},
+      body: Column(
+        children: [
+          IndexedStack(
+            index: index,
+            children: [
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: ColoredBox(
+                  color: Colors.red,
+                ),
               ),
-            ),
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: ColoredBox(
+                  color: Colors.green,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: ColoredBox(
+                  color: Colors.purple,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: ColoredBox(
+                  color: Colors.pink,
+                ),
+              ),
+            ],
           ),
-        ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                if (index == 3) {
+                  index = 0;
+                } else {
+                  index++;
+                }
+              });
+            },
+            child: Text("Next"),
+          ),
+        ],
       ),
     );
   }
