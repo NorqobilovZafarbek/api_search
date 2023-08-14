@@ -13,54 +13,29 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          IndexedStack(
-            index: index,
-            children: [
-              SizedBox(
-                height: 100,
-                width: double.infinity,
-                child: ColoredBox(
-                  color: Colors.red,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox.expand(
+          child: DraggableScrollableSheet(
+            initialChildSize: .3,
+            minChildSize: .13,
+            maxChildSize: .8,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                color: Colors.blue[100],
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: 10000,
+                  itemBuilder: (BuildContext context, int index) {
+                    return DecoratedBox(decoration: BoxDecoration(color: Colors.primaries[index % 15]),
+                      child: Text("4ifikfm4rf"),
+                    );
+                  },
                 ),
-              ),
-              SizedBox(
-                height: 100,
-                width: double.infinity,
-                child: ColoredBox(
-                  color: Colors.green,
-                ),
-              ),
-              SizedBox(
-                height: 100,
-                width: double.infinity,
-                child: ColoredBox(
-                  color: Colors.purple,
-                ),
-              ),
-              SizedBox(
-                height: 100,
-                width: double.infinity,
-                child: ColoredBox(
-                  color: Colors.pink,
-                ),
-              ),
-            ],
-          ),
-          TextButton(
-            onPressed: () {
-              setState(() {
-                if (index == 3) {
-                  index = 0;
-                } else {
-                  index++;
-                }
-              });
+              );
             },
-            child: Text("Next"),
           ),
-        ],
+        ),
       ),
     );
   }
