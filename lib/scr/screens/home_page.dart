@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,28 +9,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  int index = 0;
   @override
   Widget build(BuildContext context) {
-    return const DefaultTabController(
-      length: 3,
-      animationDuration: Duration(milliseconds: 200),
-      child: Scaffold(
-        appBar: TabBar(
-          tabs: [
-            Text("1"),
-            Text("2"),
-            Text("3"),
-          ],
-        ),
-        body: TabBarView(
-          children: [
-            Scaffold(backgroundColor: Colors.black),
-            Scaffold(backgroundColor: Colors.purple),
-            Scaffold(backgroundColor: Colors.deepPurpleAccent),
-          ],
+    return Scaffold(
+      body: Center(
+        child: Lottie.asset(
+          'assets/images/animation_llau740i.json',
         ),
       ),
     );
   }
 }
+// ListView(
+// children: [
+// // Load a Lottie file from a remote url
+// Lottie.network('https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json'),
+// Lottie.network('assets/images/animation_llau740i.json'),
+// Lottie(composition: composition)
+// ],
+// )
