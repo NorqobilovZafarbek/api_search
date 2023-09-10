@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home_page.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class _App extends State<App> {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: Placeholder(),
     );
   }
 }
